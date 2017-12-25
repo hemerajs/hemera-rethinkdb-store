@@ -7,6 +7,11 @@
 Rethinkdb - The open-source database for the realtime web.
 This is a plugin to use [Rethinkdb](https://rethinkdb.com) with Hemera.
 
+## Example
+```js
+hemera.use(require('hemera-rethinkdb-store'))
+```
+
 ## Start Rethinkdb with Docker
 
 ```js
