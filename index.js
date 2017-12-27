@@ -286,14 +286,15 @@ function hemeraRethinkdbStore(hemera, opts, done) {
   done()
 }
 
-const plugin = Hp(hemeraRethinkdbStore, '>=3')
-plugin[Symbol.for('name')] = require('./package.json').name
-plugin[Symbol.for('options')] = {
-  payloadValidator: 'hemera-joi',
-  rethinkdb: {
-    pool: true,
-    cursor: true
+module.exports = Hp(hemeraRethinkdbStore, {
+  hemera: '>=3',
+  name: require('./package.json').name,
+  dependencies: ['hemera-joi'],
+  options: {
+    payloadValidator: 'hemera-joi',
+    rethinkdb: {
+      pool: true,
+      cursor: true
+    }
   }
-}
-plugin[Symbol.for('dependencies')] = ['hemera-joi']
-module.exports = plugin
+})
